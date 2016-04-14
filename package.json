@@ -1,0 +1,22 @@
+{
+  "name": "sb2",
+  "version": "0.0.1",
+  "description": " read and write scratch projects with javascript ",
+  "main": "sb2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adespotist/sb2.git"
+  },
+  "keywords": [
+    "scratch"
+  ],
+  "author": "adespotist",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adespotist/sb2/issues"
+  },
+  "homepage": "https://github.com/adespotist/sb2#readme"
+}
