@@ -21,7 +21,19 @@
 		this.stage = null
 		this.sprites = []
 	}
-	
+
+	// Scriptables are things with Scripts.
+	// Everything with Scripts also have, by extension, costumes and sounds.
+	sb2.Scriptable = function Scriptable () {
+		// Scriptables are abstract so you can't create them.
+		if ( this.constructor === sb2.Scriptable )
+			throw new Error( 'Cannot instantiate Scriptable: Abstract' )
+
+		this.costumes = []
+		this.sounds = []
+		this.scripts = []
+	}
+
 	// Provide the return the object to the module.
 	return sb2
 })
