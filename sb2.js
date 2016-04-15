@@ -15,6 +15,13 @@
 	// This is where the fun begins.
 	var sb2 = {}
 
+	// A Project is simply a collection of Sprites and a Stage.
+	sb2.Project = function Project () {
+		// Create an empty Project with no Sprites and no Stage.
+		this.stage = null
+		this.sprites = []
+	}
+	
 	// Provide the return the object to the module.
 	return sb2
 })
