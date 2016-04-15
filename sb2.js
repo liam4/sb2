@@ -29,7 +29,7 @@
 		if ( this.constructor === sb2.Actor )
 			throw new Error( 'Cannot instantiate Actor: Abstract' )
 
-		this.project = parentz
+		this.project = parent
 	}
 
 	// Scriptables are things with Scripts.
