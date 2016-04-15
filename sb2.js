@@ -22,6 +22,16 @@
 		this.sprites = []
 	}
 
+	// Actors are things that belong in a Project.
+	// Their only property is a parent Project.
+	sb2.Actor = function Actor ( parent ) {
+		// Actors are, like Scriptables, abstract, so you can't create them.
+		if ( this.constructor === sb2.Actor )
+			throw new Error( 'Cannot instantiate Actor: Abstract' )
+
+		this.project = parentz
+	}
+
 	// Scriptables are things with Scripts.
 	// Everything with Scripts also have, by extension, costumes and sounds.
 	sb2.Scriptable = function Scriptable () {
