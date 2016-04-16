@@ -48,6 +48,21 @@
 		this.costumeIndex = 0
 	}
 
+	// Sprites are Scriptables with properties relating to motion such as direction,
+	// X position and Y position.
+	sb2.Sprite = function Sprite ( parent ) {
+		sb2.Scriptable.apply( this, arguments )
+
+		this.x = 0
+		this.y = 0
+		this.scale = 100
+		this.direction = 90
+		this.visible = true
+		
+		this.project.sprites.push( this )
+		this.index = this.project.sprites.length
+	}
+
 	// Provide the return the object to the module.
 	return sb2
 })
