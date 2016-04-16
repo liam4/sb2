@@ -40,6 +40,8 @@
 			throw new Error( 'Cannot instantiate Scriptable: Abstract' )
 
 		sb2.Actor.apply( this, arguments )
+		this.variables = []
+		this.lists = []
 		this.costumes = []
 		this.sounds = []
 		this.scripts = []
