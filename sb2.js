@@ -48,6 +48,17 @@
 		this.costumeIndex = 0
 	}
 
+	// Stages are Scriptables that contain some additional information about the Project
+	// that is its parent.
+	sb2.Stage = function Stage ( parent ) {
+		sb2.Scriptable.apply( this, arguments )
+		
+		this.penLayerId = 0
+		this.penLayerMD5 = 0
+		this.tempo = 60
+		this.transparency = 0
+	}
+
 	// Sprites are Scriptables with properties relating to motion such as direction,
 	// X position and Y position.
 	sb2.Sprite = function Sprite ( parent, name ) {
