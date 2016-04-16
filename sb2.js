@@ -58,9 +58,9 @@
 		this.scale = 100
 		this.direction = 90
 		this.visible = true
-		
-		this.project.sprites.push( this )
+
 		this.index = this.project.sprites.length
+		this.project.sprites.push( this )
 	}
 
 	// Provide the return the object to the module.
