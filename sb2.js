@@ -50,9 +50,10 @@
 
 	// Sprites are Scriptables with properties relating to motion such as direction,
 	// X position and Y position.
-	sb2.Sprite = function Sprite ( parent ) {
-		sb2.Scriptable.apply( this, arguments )
+	sb2.Sprite = function Sprite ( parent, name ) {
+		sb2.Scriptable.apply( this, [ parent ] )
 
+		this.name = name
 		this.x = 0
 		this.y = 0
 		this.scale = 100
