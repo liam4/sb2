@@ -45,6 +45,7 @@
 		this.costumes = []
 		this.sounds = []
 		this.scripts = []
+		this.costumeIndex = 0
 	}
 
 	// Provide the return the object to the module.
