@@ -34,11 +34,12 @@
 
 	// Scriptables are things with Scripts.
 	// Everything with Scripts also have, by extension, costumes and sounds.
-	sb2.Scriptable = function Scriptable () {
+	sb2.Scriptable = function Scriptable ( parent ) {
 		// Scriptables are abstract so you can't create them.
 		if ( this.constructor === sb2.Scriptable )
 			throw new Error( 'Cannot instantiate Scriptable: Abstract' )
 
+		sb2.Actor.apply( this, arguments )
 		this.costumes = []
 		this.sounds = []
 		this.scripts = []
