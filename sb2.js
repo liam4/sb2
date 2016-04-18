@@ -90,15 +90,10 @@
 
 	// Scripts are lists of Blocks with coordinates on the scripting area.
 	// Scripts don't need to start with hat blocks - some scripts don't have them.
-	sb2.Script = function Script ( parent, x, y, blocks ) {
-		if ( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
-			this.parent = parent
-			this.x = x
-			this.y = y
-			this.blocks = blocks
-		} else {
-			throw new Error( 'Parent must be of type Sprite or Stage' )
-		}
+	sb2.Script = function Script ( x, y, blocks ) {
+		this.x = x
+		this.y = y
+		this.blocks = blocks
 	}
 
 	// Provide the return the object to the module.
