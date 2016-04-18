@@ -96,6 +96,14 @@
 		this.blocks = blocks
 	}
 
+	// Comments are bits of text attached to the scripting area.
+	// TODO: Attach comments to Blocks
+	sb2.Comment = function Comment ( x, y, message ) {
+		this.x = x
+		this.y = y
+		this.content = message
+	}
+
 	// Provide the return the object to the module.
 	return sb2
 })
