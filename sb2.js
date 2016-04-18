@@ -85,6 +85,15 @@
 		this.file = file
 	}
 
+	// Scripts are lists of Blocks with coordinates on the scripting area.
+	// Scripts don't need to start with hat blocks - some scripts don't have them.
+	sb2.Script = function Script ( parent, x, y, blocks ) {
+		this.parent = parent
+		this.x = x
+		this.y = y
+		this.blocks = blocks
+	}
+
 	// Provide the return the object to the module.
 	return sb2
 })
