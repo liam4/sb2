@@ -73,6 +73,18 @@
 		this.project.sprites.push( this )
 	}
 
+	// A Costume is simply an image file with a name.
+	sb2.Costume = function Costume ( file, name ) {
+		this.name = name
+		this.file = file
+	}
+
+	// A Sound is merely a sound file with a name.
+	sb2.Sound = function Sound ( file, name ) {
+		this.name = name
+		this.file = file
+	}
+
 	// Provide the return the object to the module.
 	return sb2
 })
