@@ -29,6 +29,9 @@
 		if ( this.constructor === sb2.Actor )
 			throw new Error( 'Cannot instantiate Actor: Abstract' )
 
+		if ( ! ( parent instanceof sb2.Project ) )
+				throw new Error( 'Parent must be of type Project' )
+
 		this.project = parent
 	}
 
@@ -88,10 +91,14 @@
 	// Scripts are lists of Blocks with coordinates on the scripting area.
 	// Scripts don't need to start with hat blocks - some scripts don't have them.
 	sb2.Script = function Script ( parent, x, y, blocks ) {
-		this.parent = parent
-		this.x = x
-		this.y = y
-		this.blocks = blocks
+		if ( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
+			this.parent = parent
+			this.x = x
+			this.y = y
+			this.blocks = blocks
+		} else {
+			throw new Error( 'Parent must be of type Sprite or Stage' )
+		}
 	}
 
 	// Provide the return the object to the module.
