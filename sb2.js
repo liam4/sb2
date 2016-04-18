@@ -52,12 +52,10 @@
 	// that is its parent.
 	sb2.Stage = function Stage ( parent ) {
 		sb2.Scriptable.apply( this, arguments )
-
 		this.penLayerId = 0
 		this.penLayerMD5 = 0
 		this.tempo = 60
 		this.transparency = 0
-
 		this.project.stage = this
 	}
 
@@ -65,14 +63,12 @@
 	// X position and Y position.
 	sb2.Sprite = function Sprite ( parent, name ) {
 		sb2.Scriptable.apply( this, [ parent ] )
-
 		this.name = name
 		this.x = 0
 		this.y = 0
 		this.scale = 100
 		this.direction = 90
 		this.visible = true
-
 		this.index = this.project.sprites.length
 		this.project.sprites.push( this )
 	}
