@@ -88,6 +88,21 @@
 		this.file = file
 	}
 
+	// Blocks are specs with a list of arguments.
+	// Some blocks can also take Scripts as arguments.
+	sb2.Block = function Block ( spec, arguments ) {
+		if ( sb2.Block.specs.contains( spec ) ) {
+			this.spec = spec
+			this.arguments = arguments
+		} else {
+			throw new Error( 'Please provide valid block spec' )
+		}
+	}
+
+	// TODO: Generate the Block Specs from the Flash code of the editor
+	sb2.Block.specs = [
+	]
+
 	// Scripts are lists of Blocks with coordinates on the scripting area.
 	// Scripts don't need to start with hat blocks - some scripts don't have them.
 	sb2.Script = function Script ( x, y, blocks ) {
