@@ -115,6 +115,15 @@
 		this.blocks = blocks
 	}
 
+	// Serialize a Script into JSON to be directly included in the Project.
+	sb2.Script.serialize = function serializeScript( script ) {
+		return JSON.stringify(
+			[ script.x,
+				script.y,
+					script.blocks ]
+		)
+	}
+
 	// Comments are bits of text attached to the scripting area.
 	// TODO: Attach comments to Blocks
 	sb2.Comment = function Comment( x, y, message ) {
