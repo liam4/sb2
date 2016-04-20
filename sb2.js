@@ -102,6 +102,11 @@
 			throw new Error( 'Please provide valid block spec' )
 	}
 
+	// Serialize a Block into JSON to be directly included in the Project.
+	sb2.Block.serialize = function serializeBlock( block ) {
+		return JSON.stringify( [].concat.apply( [], [ block.spec, block.arguments ] ) )
+	}
+
 	// Scripts are lists of Blocks with coordinates on the scripting area.
 	// Scripts don't need to start with hat blocks - some scripts don't have them.
 	sb2.Script = function Script( x, y, blocks ) {
