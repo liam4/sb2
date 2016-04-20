@@ -12,7 +12,6 @@
 	else
 		root.sb2 = factory.call()
 })(this, function () {
-	// This is where the fun begins.
 	var sb2 = {}
 
 	// A Project is simply a collection of Sprites and a Stage.
@@ -91,19 +90,20 @@
 	// Blocks are specs with a list of arguments.
 	// Some blocks can also take Scripts as arguments.
 	sb2.Block = function Block( spec, arguments ) {
-		if ( sb2.Block.specs.map(function ( spec ) {
-			return spec[2]
-		}).indexOf( spec ) != -1 ) {
+		if ( sb2.Block.specs.map(function ( spec ) { return spec[2] }).indexOf( spec ) != -1 ) {
 			this.spec = spec
-			this.arguments = Array.isArray( arguments )
-			                 	? arguments
-						: [arguments]
+			if ( Array.isArray( arguments ) )
+				this.arguments = arguments
+			else
+				this.arguments = [ arguments ]
 		} else
 			throw new Error( 'Please provide valid block spec' )
 	}
 
 	// Serialize a Block into JSON to be directly included in the Project.
 	sb2.Block.serialize = function serializeBlock( block ) {
+		// Block tuples are [spec, arguments...] without a nested array for arguments.
+		// We need to flatten the array first.
 		return JSON.stringify( [].concat.apply( [], [ block.spec, block.arguments ] ) )
 	}
 
