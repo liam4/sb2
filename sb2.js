@@ -126,10 +126,20 @@
 
 	// Comments are bits of text attached to the scripting area.
 	// TODO: Attach comments to Blocks
-	sb2.Comment = function Comment( x, y, message ) {
+	sb2.Comment = function Comment( x, y, w, h, message ) {
 		this.x = x
 		this.y = y
+		this.width = w
+		this.height = h
 		this.content = message
+	}
+
+	sb2.Comment.serialize = function serializeComment( comment ) {
+		return JSON.stringify(
+			[ comment.x, comment.y,
+				comment.width, comment.height,
+				true, -1, comment.message ]
+		)
 	}
 
 
