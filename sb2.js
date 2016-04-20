@@ -91,7 +91,9 @@
 	// Blocks are specs with a list of arguments.
 	// Some blocks can also take Scripts as arguments.
 	sb2.Block = function Block ( spec, arguments ) {
-		if ( sb2.Block.specs.contains( spec ) ) {
+		if ( sb2.Block.specs.map(function (spec) {
+			return spec[2]
+		}).indexOf( spec ) != -1 ) {
 			this.spec = spec
 			this.arguments = arguments
 		} else {
