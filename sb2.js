@@ -95,7 +95,9 @@
 			return spec[2]
 		}).indexOf( spec ) != -1 ) {
 			this.spec = spec
-			this.arguments = arguments
+			this.arguments = Array.isArray(arguments)
+			                 	? arguments
+						: [arguments]
 		} else {
 			throw new Error( 'Please provide valid block spec' )
 		}
