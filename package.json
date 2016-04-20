@@ -1,6 +1,6 @@
 {
   "name": "sb2",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": " read and write scratch projects with javascript ",
   "main": "sb2.js",
   "scripts": {
