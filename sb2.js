@@ -155,6 +155,23 @@
 			throw new Error( 'Variable parent must be Scriptable' )
 	}
 
+	// A List is a name associated with a list of values.
+	// It also belongs to a Scriptable.
+	sb2.List = function List( name, contents, parent ) {
+		// TODO: Information about List monitors
+		this.name = name
+		this.contents = contents
+		// TODO: This should probably be done with inheritance at some point
+		if ( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
+			this.parent = parent
+			if ( parent.lists.map( function (variable) { return variable.name } ).indexOf(this.name) == -1 )
+				this.parent.variables.push(this)
+			else
+				throw new Error( 'Parent already has list of name ' + this.name )
+		} else
+			throw new Error( ';ost parent must be Scriptable' )
+	}
+
 
 	sb2.Block.specs = [
 		['move %n steps', ' ', 'forward:'],
