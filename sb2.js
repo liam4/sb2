@@ -87,13 +87,13 @@
 
 	// Blocks are specs with a list of arguments.
 	// Some blocks can also take Scripts as arguments.
-	sb2.Block = function Block( spec, arguments ) {
+	sb2.Block = function Block( spec, args ) {
 		if ( sb2.Block.specs.some(function ( spc ) { return spc[2] === spec }) ) {
 			this.spec = spec
-			if ( Array.isArray( arguments ) )
-				this.arguments = arguments
+			if ( Array.isArray( args ) )
+				this.arguments = args
 			else
-				this.arguments = [ arguments ]
+				this.arguments = [ args ]
 		} else
 			throw new Error( 'Please provide valid block spec' )
 	}
