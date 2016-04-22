@@ -140,6 +140,15 @@
 		)
 	}
 
+	// A Variable is a name associated with a value.
+	// It belongs to a Scriptable.
+	sb2.Variable = function Variable( name, value, parent ) {
+		this.name = name
+		this.value = value
+		this.parent = parent
+		this.parent.variables.push(this)
+	}
+
 
 	sb2.Block.specs = [
 		['move %n steps', ' ', 'forward:'],
