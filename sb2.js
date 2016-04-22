@@ -54,8 +54,6 @@
 	// that is its parent.
 	sb2.Stage = function Stage( parent ) {
 		sb2.Scriptable.apply( this, arguments )
-		this.penLayerId = 0
-		this.penLayerMD5 = 0
 		this.tempo = 60
 		this.transparency = 0
 		this.project.stage = this
