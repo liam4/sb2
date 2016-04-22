@@ -145,8 +145,14 @@
 	sb2.Variable = function Variable( name, value, parent ) {
 		this.name = name
 		this.value = value
-		this.parent = parent
-		this.parent.variables.push(this)
+		if ( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
+			this.parent = parent
+			if ( parent.variables.map( function (variable) { return variable.name } ).indexOf(this.name) == -1 )
+				this.parent.variables.push(this)
+			else
+				throw new Error( 'Parent already has variable of name ' + this.name )
+		} else
+			throw new Error( 'Variable parent must be Scriptable' )
 	}
 
 
