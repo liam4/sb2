@@ -140,36 +140,34 @@
 		)
 	}
 
+	// Datum is either a Variable or a List.
+	// They both have similar properties so we can group them up.
+	sb2.Datum = function Datum( name, value, parent, checkin ) {
+		console.log(checkin)
+		this.name = name
+		this.value = value
+		if( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
+			this.parent = parent
+			if( parent[checkin].map( function ( v ) { return v.name } ).indexOf( this.name ) == -1 ) {
+				this.parent[checkin].push( this )
+			} else {
+				throw new Error( 'Parent already has variable/list with name ' + this.name )
+			}
+		} else {
+			throw new Error( 'Parent must be Scriptable' )
+		}
+	}
+
 	// A Variable is a name associated with a value.
 	// It belongs to a Scriptable.
 	sb2.Variable = function Variable( name, value, parent ) {
-		this.name = name
-		this.value = value
-		if ( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
-			this.parent = parent
-			if ( parent.variables.map( function (variable) { return variable.name } ).indexOf(this.name) == -1 )
-				this.parent.variables.push(this)
-			else
-				throw new Error( 'Parent already has variable of name ' + this.name )
-		} else
-			throw new Error( 'Variable parent must be Scriptable' )
+		sb2.Datum.apply( this, [ name, value, parent, 'variables' ] )
 	}
 
 	// A List is a name associated with a list of values.
 	// It also belongs to a Scriptable.
 	sb2.List = function List( name, contents, parent ) {
-		// TODO: Information about List monitors
-		this.name = name
-		this.contents = contents
-		// TODO: This should probably be done with inheritance at some point
-		if ( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
-			this.parent = parent
-			if ( parent.lists.map( function (variable) { return variable.name } ).indexOf(this.name) == -1 )
-				this.parent.variables.push(this)
-			else
-				throw new Error( 'Parent already has list of name ' + this.name )
-		} else
-			throw new Error( ';ost parent must be Scriptable' )
+		sb2.Datum.apply( this, [ name, contents, parent, 'lists' ] )
 	}
 
 
