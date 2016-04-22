@@ -164,10 +164,31 @@
 		sb2.Datum.apply( this, [ name, value, parent, 'variables' ] )
 	}
 
+	sb2.Variable.serialize = function serializeVariable( variable ) {
+		return JSON.stringify({
+			name: variable.name,
+			value: variable.value,
+			isPersistent: false
+		})
+	}
+
 	// A List is a name associated with a list of values.
 	// It also belongs to a Scriptable.
 	sb2.List = function List( name, contents, parent ) {
 		sb2.Datum.apply( this, [ name, contents, parent, 'lists' ] )
+	}
+
+	sb2.List.serialize = function serializeList( list ) {
+		return JSON.stringify({
+			listName: list.name,
+			contents: list.value,
+			isPersistent: false,
+			x: 0, // Do later
+			y: 0, // Do later
+			width: 1, // Do later
+			height: 1, // Do later
+			visible: false
+		})
 	}
 
 
