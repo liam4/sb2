@@ -148,7 +148,7 @@
 		this.value = value
 		if( parent instanceof sb2.Sprite || parent instanceof sb2.Stage ) {
 			this.parent = parent
-			if( parent[checkin].map( function ( v ) { return v.name } ).indexOf( this.name ) == -1 ) {
+			if( parent[checkin].every( function ( v ) { return v.name !== name } )) {
 				this.parent[checkin].push( this )
 			} else {
 				throw new Error( 'Parent already has variable/list with name ' + this.name )
